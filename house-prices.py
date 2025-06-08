@@ -18,12 +18,15 @@ def create_training_data():
     price_in_hunder_thousands = None
     
     n_bedrooms = np.arange(1, 7,dtype=np.float32)
-    price_in_hunder_thousands = np.arange(1, 7, dtype=np.float32) * 50 + 50
+    price_in_hunder_thousands = (np.arange(1, 7, dtype=np.float32) * 50 + 50) / 100
 
     return n_bedrooms, price_in_hunder_thousands
 
 
 features, targets = create_training_data()
+
+print("Features (n_bedrooms):", features)
+print("Targets (price_in_hundreds_of_thousands):", targets)
 
 def define_and_compile_model():
     model = tf.keras.Sequential([
