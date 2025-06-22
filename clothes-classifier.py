@@ -74,6 +74,10 @@ for test_index in range(len(test_images)):
     predictions = model.predict(test_images[test_index:test_index+1])
     predicted_class = np.argmax(predictions[0])
     actual_class = test_labels[test_index]
+    
+    plt.imshow(test_images[test_index], cmap=plt.cm.binary)
+    plt.title(f'Predicted: {class_names[predicted_class]}, Actual: {class_names[actual_class]}')
+    plt.show()
 
     print(f'Predicted: {class_names[predicted_class]}')
     print(f'Actual: {class_names[actual_class]}')
